@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turma da Duni</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col">
+                <a href="#" onclick="loadPage('home')">
+                    <img src="img/duni-logo.png" alt="Banner" class="img-fluid w-75 m-2">
+                </a>
+            </div>            
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <div class="col"><div class="row text-center">
+                        <div class="col">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="loadPage('home')">Início</a>
+                            </li>
+                        </div>
+                        <div class="col">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="loadPage('historia')">História</a>
+                            </li>
+                        </div>
+                        <div class="col">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="loadPage('portfolio')">Portfólio</a>
+                            </li>
+                        </div>
+                        <div class="col">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="loadPage('contato')">Contato</a>
+                            </li>
+                        </div>
+                    </div></div>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </nav>
+
+  <div id="content" class="container container-fluid">
+    <!-- Conteúdo das páginas será carregado aqui -->
+  </div>
+  
+  <footer class="footer fixed-bottom bg-light text-light">
+    <div class="container container-fluid text-center p-2">
+      <p id="text-rodape">Turma da Duni© 2023 - Todos os Direitos Reservados</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    function loadPage(page) {
+      $.ajax({
+        url: page + '.html',
+        success: function(data) {
+          $('#content').html(data);
+        },
+        error: function() {
+          $('#content').html('<p>Erro ao carregar a página.</p>');
+        }
+      });
+    }
+
+    loadPage("home");
+  </script>
+</body>
+</html>
